@@ -1,2 +1,3 @@
 # APCSKlondike
-APCS Project
+APCS Project by Khang and Ryan
+

@@ -4,14 +4,14 @@ import java.util.List;
 public abstract class Card implements Drawable, Updateable{
     private int value, suit;
 	public Location loc;
-	public Boolean isFaceUp;
+	public Boolean isFaceUp, isSelected;
 	private static ArrayList<String> valuesSuits = new ArrayList<>(
 			List.of("", "Hearts", "Diamonds", "Clubs", "Spades", "Jack", "Queen", "King", "Ace"));
 
 	public Card(int suit, int value) {
 		this.suit = suit;
 		this.value = value;
-		this.loc = new Location(0,0)
+		this.loc = new Location(0,0);
 	}
 
     public Card(int suit, int value, int x, int y){
@@ -20,7 +20,6 @@ public abstract class Card implements Drawable, Updateable{
 		this.loc = new Location(x,y);
     }
 
-	@Override
 	public int compareTo(Card c) {
 		return this.value-c.value;
 	}

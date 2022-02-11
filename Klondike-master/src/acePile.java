@@ -2,17 +2,14 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 
 public class acePile extends Pile{
-
     @Override
     public void draw(Graphics g) {
-        // TODO Auto-generated method stub
-        
+        // TODO Auto-generated method stub 
     }
 
     @Override
     public void update(ActionEvent a) {
-        // TODO Auto-generated method stub
-        
+        // TODO Auto-generated method stub 
     }
 
     @Override
@@ -20,5 +17,4 @@ public class acePile extends Pile{
         // TODO Auto-generated method stub
         return false;
     }
-    
 }
