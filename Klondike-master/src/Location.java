@@ -4,4 +4,10 @@ public class Location {
         this.x=x;
         this.y=y;
     }
+    public getX(){
+        return x;
+    }
+    public getY(){
+        return y;
+    }
 }

@@ -3,7 +3,7 @@ import java.util.List;
 
 public abstract class Card implements Drawable, Updateable{
     private int value, suit;
-	public Location loc
+	public Location loc;
 	public Boolean isFaceUp;
 	private static ArrayList<String> valuesSuits = new ArrayList<>(
 			List.of("", "Hearts", "Diamonds", "Clubs", "Spades", "Jack", "Queen", "King", "Ace"));
@@ -20,8 +20,13 @@ public abstract class Card implements Drawable, Updateable{
 		this.loc = new Location(x,y);
     }
 
+	@Override
 	public int compareTo(Card c) {
 		return this.value-c.value;
+	}
+
+	public void setLocation(Location other){
+		loc = other;
 	}
 
 	@Override
