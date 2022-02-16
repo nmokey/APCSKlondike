@@ -24,10 +24,11 @@ public abstract class Card implements Drawable, Updateable{
 		return this.value-c.value;
 	}
 
-	public void setLocation(Location other){
+	public void moveTo(Location other){
 		loc = other;
 	}
 
+	
 	@Override
 	public String toString() {
 		String s = "";

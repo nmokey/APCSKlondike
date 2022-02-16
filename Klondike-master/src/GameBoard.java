@@ -9,20 +9,17 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class GameBoard implements Drawable, Updateable {
-	
-
+	private PlayPile pile = new PlayPile();
 	Image testImage, backImage;
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
-	 
 	private int numdraws=0;
 	public GameBoard() {
 		try {
-			testImage = ImageIO.read(new File("images/cards/dj.png"));
-			backImage = ImageIO.read(new File("images/cards/b1fv.png"));
+			testImage = ImageIO.read(new File("Klondike-master/images/cards/dj.png"));
+			backImage = ImageIO.read(new File("Klondike-master/images/cards/b1fv.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	/** @param g Graphics context onto which all Objects in the game
@@ -39,7 +36,6 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(backImage, 105, 100, null);
 	}
 
-
 	/**
 	 * This method is called by the game when a click has been made 
 	 * on the panel.  Must determine if the click makes sense (is it 
@@ -50,8 +46,6 @@ public class GameBoard implements Drawable, Updateable {
 	public void justClicked(MouseEvent me) {
 		Point p = me.getPoint();
 		System.out.println("You just clicked "+p);
-
-
 	}
 
 	@Override
@@ -61,5 +55,4 @@ public class GameBoard implements Drawable, Updateable {
 		
 		
 	}
-
 }

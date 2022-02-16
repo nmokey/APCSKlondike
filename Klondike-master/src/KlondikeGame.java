@@ -9,14 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class KlondikeGame {
-	//#region vars
 	public static final int DELAY_INTERVAL = 50, INIT_W = 1000, INIT_H = 800;
 	private JFrame frame = new JFrame("Klondike");
 	private JPanel panel;
 	private final Dimension DIM = new Dimension(INIT_W,INIT_H);
 	private GameBoard board = new GameBoard();
 	private Timer timer = new Timer(DELAY_INTERVAL, null);
-	//#endregion vars
 	
 	public static void main(String[] args) {
 		new KlondikeGame().start();

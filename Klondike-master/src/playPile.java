@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 
-public class playPile extends Pile{
+public class PlayPile extends Pile{
     @Override
     public void draw(Graphics g) {
         // TODO Auto-generated method stub 

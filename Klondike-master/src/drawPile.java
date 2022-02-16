@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 
-public class drawPile extends Pile{
+public class DrawPile extends Pile{
 
     @Override
     public void draw(Graphics g) {
