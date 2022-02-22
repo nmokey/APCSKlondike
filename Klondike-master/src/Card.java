@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Image;
 
 public abstract class Card implements Drawable, Updateable{
     private int value, suit;
-	public Location loc;
-	public Boolean isFaceUp, isSelected;
+	private Location loc;
+	private Boolean isFaceUp, isSelected;
+	private Image front;
+	private static Image back;
 	private static ArrayList<String> valuesSuits = new ArrayList<>(
 			List.of("", "Hearts", "Diamonds", "Clubs", "Spades", "Jack", "Queen", "King", "Ace"));
 
@@ -12,6 +15,7 @@ public abstract class Card implements Drawable, Updateable{
 		this.suit = suit;
 		this.value = value;
 		this.loc = new Location(0,0);
+		openImage();
 	}
 
     public Card(int suit, int value, int x, int y){
@@ -28,7 +32,15 @@ public abstract class Card implements Drawable, Updateable{
 		loc = other;
 	}
 
-	
+	public Image openImage(){
+		if(isFaceUp){
+			return front;
+		}
+		else{
+			return back;
+		}
+	}
+
 	@Override
 	public String toString() {
 		String s = "";
