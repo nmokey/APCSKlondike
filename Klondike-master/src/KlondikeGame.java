@@ -51,5 +51,4 @@ public class KlondikeGame {
 		board.justClicked(me);
 		panel.repaint();
 	}
-
 }

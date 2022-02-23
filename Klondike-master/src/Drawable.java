@@ -7,12 +7,5 @@ import java.awt.Graphics;
  * state.  
  */
 public interface Drawable {
-    /**
-     * This method will be called when this Object must draw itself
-     * (potentially from scratch).  This Object must know its own 
-     * location.
-     * @param g The Graphics context onto which this Object will 
-     * display itself.
-     */
     void draw(Graphics g);
 }

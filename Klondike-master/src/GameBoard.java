@@ -46,13 +46,13 @@ public class GameBoard implements Drawable, Updateable {
 	public void justClicked(MouseEvent me) {
 		Point p = me.getPoint();
 		System.out.println("You just clicked "+p);
+		Location clickLoc = new Location(p.getX(), p.getY());
 	}
 
 	@Override
 	// this update will be called each time the timer in the KlondikeGame
 	// goes off.  This will be convenient for animating.
 	public void update(ActionEvent a) {
-		
 		
 	}
 }
