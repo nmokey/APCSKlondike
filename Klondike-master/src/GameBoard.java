@@ -10,16 +10,14 @@ import javax.imageio.ImageIO;
 
 public class GameBoard implements Drawable, Updateable {
 	private PlayPile pile = new PlayPile();
+	private boolean firstClick=false;
 	Image testImage, backImage;
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
 	private int numdraws=0;
+
 	public GameBoard() {
-		try {
-			testImage = ImageIO.read(new File("Klondike-master/images/cards/dj.png"));
-			backImage = ImageIO.read(new File("Klondike-master/images/cards/b1fv.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Deck deck = new Deck();
+		DrawPile pile = new DrawPile();
 	}
 
 	/** @param g Graphics context onto which all Objects in the game
@@ -47,6 +45,20 @@ public class GameBoard implements Drawable, Updateable {
 		Point p = me.getPoint();
 		System.out.println("You just clicked "+p);
 		Location clickLoc = new Location(p.getX(), p.getY());
+		if(firstClick){
+			firstClick(clickLoc);	
+		}
+		else{
+			secondClick(clickLoc);
+		}
+	}
+	
+	private void firstClick(Location loc){
+		//TODO
+	}
+
+	private void secondClick(Location loc){
+		//TODO
 	}
 
 	@Override
