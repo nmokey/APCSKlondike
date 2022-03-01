@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../../War-2"
+		},
+		{
+			"path": "../../../Bejeweled"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"java.project.referencedLibraries": [
+			"lib/**/*.jar",
+			"sinbad.jar"
+		],
+		"java.project.sourcePaths": [
+			"Klondike-master/src"
+		]
+	}
+}

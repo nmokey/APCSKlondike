@@ -10,4 +10,7 @@ public class Location {
     public double getY(){
         return y;
     }
+    public Location incrementLoc(Location original, int stackIndex){
+        return new Location(original.x, original.y+15*stackIndex);
+    }
 }
