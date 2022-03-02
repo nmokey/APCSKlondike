@@ -1,29 +1,32 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 
-public class PlayPile extends Pile{
+public class PlayPile extends Pile {
     public PlayPile(int x, int y) {
         super(x, y);
-        //TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
 
-    public void addPlayCard(Card c){
+    public void addPlayCard(Card c) { // only called when constructing
         addCard(c);
-        c.setLocation(c.getLocation().incrementLoc(c.getLocation(), cards.size()));
-        if(cards.size()>1)
-            cards.get(cards.size()-2).flip();
-        cards.get(cards.size()-1).flip();
+        c.setLocation(c.getLocation().incrementLocVert(c.getLocation(), cards.size()));
+        if (cards.size() > 1)
+            cards.get(cards.size() - 2).flip();
+        cards.get(cards.size() - 1).flip();
     }
 
     @Override
     public void draw(Graphics g) {
-        // for(int i=0;i<cards.size();i++){
-        //     cards.get(i).setLocation(cards.get(i).getLocation().incrementLoc(cards.get(i).getLocation(), i));
-        // }
-        // cards.get(cards.size()-1).flip();
-        for (Card c:cards) {
-            c.draw(g);
+        if (!this.isEmpty()) {
+            for (Card c : cards) {
+                c.draw(g);
+            }
+        } else {
+            g.setColor(new Color(255, 255, 255, 100));
+            g.fillRoundRect((int) loc.getX(), (int) loc.getY(), 71, 96, 10, 10);
         }
+
     }
 
     @Override

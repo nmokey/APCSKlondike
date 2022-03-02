@@ -1,15 +1,11 @@
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-
 import java.awt.Color;
 import java.awt.Graphics;
-import java.io.File;
-import java.io.IOException;
 
 public abstract class Pile implements Drawable, Updateable {
     protected ArrayList<Card> cards = new ArrayList<>();
-    private Location loc; //upper left-hand corner
+    protected Location loc; //upper left-hand corner
+
     public Pile(int x, int y){
         loc = new Location(x, y);
     }
@@ -23,22 +19,21 @@ public abstract class Pile implements Drawable, Updateable {
         return cards.size()==0;
     }
     
-    public ArrayList<Card> removeCard(){
-        //TODO
-        return null;
+    public void receiveCard(Card c){ //used for card movements in playpiles
+        addCard(c);
+        c.setLocation(c.getLocation().incrementLocVert(c.getLocation(), cards.size()));
     }
 
-    public Card getTopCard(){
+    public Card getTopCard(){ //returns the top card
         if(this.isEmpty()){
             return null;
         }
-        else{
-            return cards.get(cards.size()-1);
-        }
+        return cards.get(cards.size()-1);
     }
 
-    public Card removeTopCard(){
-        if(this.isEmpty()){
+    public Card deal(){ //removes and returns the top card
+        if(this.isEmpty()){ 
+            System.out.println("i dealt a null!"); //testing
             return null;
         }
         else{
@@ -48,15 +43,27 @@ public abstract class Pile implements Drawable, Updateable {
         }
     }
 
-    //for acepile and drawpile
+    public void flipTopCard(){ //flips top card of a pile (used after a card is removed from a playpile)
+        if(cards.size()>0)
+            cards.get(cards.size()-1).flip();
+    }
+
     public void draw(Graphics g){
         if(cards.size()>0){
             cards.get(cards.size()-1).draw(g);
         }
         else{
             g.setColor(new Color(255,255,255,100));
-            g.drawRect((int)loc.getX(), (int)loc.getY(), 71, 96);
+            g.fillRoundRect((int)loc.getX(), (int)loc.getY(), 71, 96, 10, 10);
         }
     }
+
+    public boolean gotClicked(Location loc){
+        if(cards.get(cards.size()-1).containsPoint(loc)){
+            return true;
+        }
+        return false;
+    }
+
     public abstract boolean canAddCard(Card c);
 }
